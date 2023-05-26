@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class FireBaseHelper {
   static FireBaseHelper fireHelper = FireBaseHelper._();
@@ -24,5 +25,19 @@ class FireBaseHelper {
   bool checkUser() {
     User? user = firebaseAuth.currentUser;
     return user != null;
+  }
+
+  Future<String?> googleSignIn() async {
+    String? msg;
+    GoogleSignInAccount? user = await GoogleSignIn().signIn();
+    GoogleSignInAuthentication? auth = await user!.authentication;
+    var crd = GoogleAuthProvider.credential(
+        accessToken: auth.accessToken, idToken: auth.idToken);
+    await firebaseAuth
+        .signInWithCredential(crd)
+        .then((value) => msg = "Success")
+        .catchError((e) => msg = "Failed : $e");
+
+    return msg;
   }
 }
