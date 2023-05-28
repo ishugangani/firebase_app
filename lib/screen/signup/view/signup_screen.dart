@@ -1,6 +1,5 @@
 import 'package:firebase_app/utils/firebase_helper/firebase_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -78,7 +77,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ElevatedButton(
                   style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.blue.shade900),),
                   onPressed: () {
-                    FireBaseHelper.fireHelper.signUp(email: "${txtUser.text}", password: txtPass.text);
+                    FireBaseHelper.fireHelper.signUp(email: txtUser.text, password: txtPass.text);
                   },
                   child: Text(
                     "Sigh Up",
