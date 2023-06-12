@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
 
-    Timer(Duration(seconds: 3), () => Get.offAndToNamed('/signin'));
+    Timer(Duration(seconds: 3), () => Get.offAndToNamed(isLogin?'/home':'/signin'));
 
     return SafeArea(
       child: Scaffold(

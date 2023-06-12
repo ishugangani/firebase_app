@@ -13,6 +13,18 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          actions: [
+            PopupMenuButton(
+              itemBuilder: (context) => [
+                PopupMenuItem(child: IconButton(onPressed: (){},icon: Icon(Icons.notifications),),),
+                PopupMenuItem(child: IconButton(onPressed: (){},icon: Icon(Icons.schedule_send),),),
+                PopupMenuItem(child: IconButton(onPressed: (){},icon: Icon(Icons.music_note),),),
+                PopupMenuItem(child: IconButton(onPressed: (){},icon: Icon(Icons.image),),),
+              ],
+            ),
+          ],
+        ),
         body: Stack(
           children: [
             Image.asset("asset/images/bg.jpg"),
@@ -30,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
+
       ),
     );
   }
